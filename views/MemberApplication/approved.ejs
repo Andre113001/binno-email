@@ -1,0 +1,16 @@
+
+
+<%- include('../includes/header.ejs') %>
+
+<div
+  style="margin: 0 auto; max-width: 720px; padding: 30px 0; font-family: Arial"
+>
+  <h3>Congratulations! <%= receiver %></h3>
+  <p>You have been official approved for BiNNO and BiCoRSE Program<br/>To access your account, use your access key and temporary password</p>
+  <p>Access Key: <span style="font-weight: bold;"><%= accesskey %></span></p>
+  <p>Temporary Password: <span style="font-weight: bold;"><%= tmpPassword %></span></p>
+  <h4>Please don't share it!</h4>
+  <%- include('../includes/button.ejs') %>
+</div>
+
+<%- include('../includes/footer.ejs') %>
