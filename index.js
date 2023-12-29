@@ -15,8 +15,10 @@ app.use(jsonParserMiddleware);
 
 // Routes
 const membershipRoute = require('./routes/membershipRoute');
+const othersRoute = require('./routes/othersRoute');
 
 app.use('/membership', membershipRoute);
+app.use('/others', othersRoute);
 
 app.get('/', (req, res) => res.status(200).json("Hello There!"));
 

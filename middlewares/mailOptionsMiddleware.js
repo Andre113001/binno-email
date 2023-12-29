@@ -1,7 +1,7 @@
 const mailOptionsMiddleware = (receiver, subject, content) => ({
     from: 'startwithbinno@gmail.com',
     to: receiver,
-    subject,
+    subject: subject,
     html: content,
 });
 
