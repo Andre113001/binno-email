@@ -15,8 +15,10 @@ app.use(jsonParserMiddleware);
 
 // Routes
 const membershipRoute = require('./routes/membershipRoute');
+const testingRoute = require('./controllers/TestingEmailController');
 
 app.use('/membership', membershipRoute);
+app.use('/test', testingRoute);
 
 app.get('/', (req, res) => res.status(200).json("Hello There!"));
 
