@@ -5,12 +5,30 @@
 <div
   style="margin: 0 auto; max-width: 720px; padding: 30px 0; font-family: Arial"
 >
-  <h3>Congratulations! <%= receiver %></h3>
-  <p>You have been official approved for BiNNO and BiCoRSE Program<br/>To access your account, use your access key and temporary password</p>
-  <p>Access Key: <span style="font-weight: bold;"><%= accesskey %></span></p>
-  <p>Temporary Password: <span style="font-weight: bold;"><%= tmpPassword %></span></p>
-  <h4>Please don't share it!</h4>
-  <%- include('../includes/button.ejs') %>
+  <h1 style="text-align:center;">Congratulations! <%= receiver %></h1>
+  <p style="text-align:center;">You have been official approved for BiNNO and BiCoRSE Program<br/>To access your account, use your access key and temporary password</p>
+    <div
+         style="margin: 0 auto;"
+         >
+        <p style="text-align:center;">Your Access Key: </p>
+          <h3 style="text-align:center;"><span style="font-weight: bold;"><%= accesskey %></span></h3>
+        <p style="text-align:center;">Your temporary Password:</p>
+          <h3 style="text-align:center;"><span style="font-weight: bold;"><%= tmpPassword %></span></h3>
+    </div>
+  <h2 style="text-align:center;">Please don't share this information with anyone!</h2>
+    <div style="width: 100%;">
+
+  <table style="width: 100%; margin: 24px 0 24px 0;">
+    <tr>
+      <td></td> 
+      <td style="text-align: center;">
+        <button style=" background-color:#FF7A00; border-radius: 10px; border:none; padding: 10px 30px; color: white; cursor:pointer;">
+          Click me
+        </button>
+      </td>
+      <td></td>
+    </tr>
+  </table>
 </div>
 
 <%- include('../includes/footer.ejs') %>
