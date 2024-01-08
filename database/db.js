@@ -5,9 +5,11 @@ dotenv.config();
 
 const db = mysql.createConnection({
     host: process.env.MYSQL_HOST,
+    port: process.env.PORT,
     user: process.env.MYSQL_USER,
     password: process.env.MYSQL_PASSWORD,
     database: process.env.MYSQL_DATABASE,
+    insecureAuth: true, // Add this line to use older authentication method
 });
 
 db.connect((err) => {
