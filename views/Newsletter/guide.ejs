@@ -1,0 +1,14 @@
+<%- include('../includes/header.ejs') %>
+
+<div
+  style="margin: 0 auto; max-width: 720px; padding: 30px 0; font-family: Arial"
+>
+    <h3><%= memberName %> has added a new Guide!</h3>
+    <p>Published on <%= publishedDate %></p> <!-- Add this line -->
+    <img src="<%= image %>" alt="">
+    <h1><%= heading %></h1>
+    <p><%= content %></p>
+    <a href="http://localhost:3008/guide?id=<%= guideId %>">Read More</a>
+</div>
+
+<%- include('../includes/footer.ejs') %>

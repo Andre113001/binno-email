@@ -1,0 +1,11 @@
+<%- include('../includes/header.ejs') %>
+
+<div style="margin: 0 auto; max-width: 720px; padding: 30px 0; font-family: Arial">
+  <h3><%= memberName %> has added a new Post!</h3>
+  <p>Published on <%= publishedDate %></p> <!-- Add this line -->
+  <img src="<%= image %>" alt="">
+  <p><%= content %></p>
+  <a href="http://localhost:3008/post?id=<%= postId %>">Read More</a>
+</div>
+
+<%- include('../includes/footer.ejs') %>
