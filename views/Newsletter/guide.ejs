@@ -1,6 +1,7 @@
 <%- include('../includes/header.ejs') %>
 
 <div
+<<<<<<< HEAD
   style="margin: 0 auto; max-width: 720px; padding: 30px 0; font-family: Arial"
 >
     <h3><%= memberName %> has added a new Guide!</h3>
@@ -12,3 +13,21 @@
 </div>
 
 <%- include('../includes/footer.ejs') %>
+=======
+  style="margin: 0 auto; max-width: 720px; padding: 30px 0; font-family: Arial "
+>
+
+    <h2 style="text-align: center;"> Hello <%= nameOfRecipient %> there is a new guide from <%= enablerName %></h2>
+        <img src="https://scontent.fwnp1-1.fna.fbcdn.net/v/t39.30808-6/416133331_769982915173656_1418443157526127127_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=783fdb&_nc_eui2=AeF4vqNqRlbfAJe_grHdY7VPqHxlAbfZOMyofGUBt9k4zCXPNi_d_J_y8tVnbUp2Sgz_CT7-tqEge08l-MI3CbMp&_nc_ohc=EMcWP_pP3DYAX_w3rDL&_nc_ht=scontent.fwnp1-1.fna&oh=00_AfDvAdWOXI-k6FfIeBjjv0IDYQl6oGccKpDWqsge0TFjbw&oe=659F1DDB" style="border: none; margin: 20px 0; width: 700px; object-fit: cover;"/>
+    <h3 style="text-align: center; margin: 10px;"><%= guideTitle %></h3>
+    <p style="text-align: center"> <%= guideDetail %> </p>
+    <div style="text-align: center;">
+        <a href="<%= guideLink %>" style="display: inline-block;">See more...</a>
+    </div>
+  
+</div>
+
+<%- include('../includes/footer.ejs') %>
+
+<!-- "<%= guideImage %>" -->
+>>>>>>> 5075b7f59ee39c7a65d506f57951546b49e55d7e
