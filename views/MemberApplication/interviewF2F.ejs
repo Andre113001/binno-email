@@ -1,0 +1,16 @@
+<%- include('../includes/header.ejs') %>
+
+<div
+  style="margin: 0 auto; max-width: 720px; padding: 30px 0; font-family: Arial"
+>
+  <h1 style="text-align:center;">Congratulations! <%= receiver %></h1>
+    <p style="text-align:center;">You have been set for interview </p>
+      <div style="margin: 0 auto;">
+          <p style="text-align:center;">Your schedule is: </p>
+          <h4 style="text-align:center;"><%= timeOfInterview %></h4>
+          <p style="text-align:center;">at:</p>
+          <h4 style="text-align:center;"><%= zoomLink %></h4>
+      </div>
+</div>
+
+<%- include('../includes/footer.ejs') %>
