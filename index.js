@@ -7,7 +7,6 @@ dotenv.config();
 
 const app = express();
 const port = process.env.PORT;
-const db = require('./database/db');
 
 // Middleware
 const jsonParserMiddleware = express.json();

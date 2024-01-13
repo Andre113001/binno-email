@@ -32,7 +32,7 @@ const forgotpassword = async(req, res) => {
 };
 
 const twoAuth = async(req, res) => {
-    const {receiver, name, otp} = req.body;
+    const {receiver, otp} = req.body;
     const subject = "Attempting to log-in";
     try {
         const templatePath = path.join(__dirname, '../views/Others/twoAuth.ejs');
