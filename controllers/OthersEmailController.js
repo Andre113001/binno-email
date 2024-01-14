@@ -36,7 +36,7 @@ const twoAuth = async(req, res) => {
     const subject = "Attempting to log-in";
     try {
         const templatePath = path.join(__dirname, '../views/Others/twoAuth.ejs');
-        await ejs.renderFile(templatePath, { name, otp }, (err, data) => {
+        await ejs.renderFile(templatePath, { otp }, (err, data) => {
             if (err) {
                 console.log(err);
                 res.status(500).json(err);
@@ -45,7 +45,7 @@ const twoAuth = async(req, res) => {
 
                 req.transporter.sendMail(mailOptions, (error, info) => {
                     if (error) {
-                        return console.error(error);
+                        console.error('Email sending error:', error);
                     } else {
                         console.log('Email sent: ' + info.response);
                         res.status(200).json(info.response);
