@@ -77,7 +77,7 @@ const eventNewsletter = async(req, res) => {
     }
 };
 
-const guideNewsletter = async(req, res) => {
+const guidesNewsletter = async(req, res) => {
     const {receiver, memberName, image, heading, content, guideId} = req.body;
 
     try {
@@ -137,6 +137,6 @@ const postNewsletter = async(req, res) => {
 module.exports = {
     blogNewsletter,
     eventNewsletter,
-    guideNewsletter,
+    guidesNewsletter,
     postNewsletter
 }
