@@ -9,5 +9,6 @@ router.post('/blog', newsletterController.blogNewsletter);
 router.post('/event', newsletterController.eventNewsletter);
 router.post('/guides', newsletterController.guidesNewsletter);
 router.post('/post', newsletterController.postNewsletter);
+router.post('/', newsletterController.newsletter_basic);
 
 module.exports = router;

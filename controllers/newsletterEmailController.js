@@ -3,6 +3,8 @@
 const path = require('path');
 const ejs = require('ejs');
 const mailOptionsMiddleware = require('../middlewares/mailOptionsMiddleware');
+const { Agent } = require('https');
+const db = require('../database/db');
 
 const subject = `BiNNO Newsletter`;
 
@@ -26,7 +28,7 @@ const blogNewsletter = async(req, res) => {
     
     try {
         const templatePath = path.join(__dirname, '../views/Newsletter/blog.ejs');
-        await ejs.renderFile(templatePath, { memberName, image, heading, content, publishedDate, blogId }, (err, data) => {
+        ejs.renderFile(templatePath, { memberName, image, heading, content, publishedDate, blogId }, (err, data) => {
             if (err) {
                 console.log(err);
                 res.status(500).json(err);
@@ -134,9 +136,82 @@ const postNewsletter = async(req, res) => {
     
 };
 
+const sendNewsletter = async (req, res, receiver, username, type, title, imgSource, details, link, emailId) => {
+    const subject = "BiNNO Newsletter";
+
+    try {
+        const templatePath = path.join(__dirname, '../views/Newsletter/newsletter.ejs');
+        await ejs.renderFile(templatePath, { username, type, title, imgSource, details, link, emailId }, (err, data) => {
+            if (err) {
+                console.log(err);
+                res.status(500).json(err);
+            } else {
+                const mailOptions = mailOptionsMiddleware(receiver, subject, data);
+
+                req.transporter.sendMail(mailOptions, (error, info) => {
+                    if (error) {
+                        return console.error(error);
+                    } else {
+                        res.status(200).json(info.response);
+                    }
+                });
+            }
+        });
+    } catch (error) {
+        console.log(error);
+        res.status(500).json(error);
+    }
+};
+
+const newsletter_basic = async (req, res) => {
+    const { type, title, img, username, details, contentId } = req.body;
+    try {
+        db.query("SELECT email_address, email_id from email_i WHERE email_subscribe = 1", [], async (err, result) => {
+            if (err) {
+                res.json({ error: err });
+            } else {
+                // Extract email addresses and create an array
+                const emailAddresses = result.map(row => row.email_address);
+
+                const email_ids = result.map(row => row.email_id);
+
+                if (emailAddresses.length > 0) {
+                    try {
+                        const sentEmails = [];
+
+                        for (let i = 0; i < emailAddresses.length; i++) {
+                            const emailAddress = emailAddresses[i];
+                            const email_id = email_ids[i];
+
+                            try {
+                                const sent = await sendNewsletter(req, res, emailAddress, username, type, title, `https://www.binnostartup.site/m/api/images?filePath=${img}`, details, `https://www.binnostartup.site/${type}/${contentId}`, email_id);
+                                sentEmails.push(sent);
+                            } catch (error) {
+                                // Handle errors for individual emails
+                                console.error(error);
+                            }
+                        }
+
+                        res.json({ success: true });
+                    } catch (error) {
+                        res.status(500).json({ error: error.message });
+                    }
+                } else {
+                    res.json({ result: "No subscribed yet" });
+                }
+            }
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: error.message });
+    }
+};
+
+
 module.exports = {
     blogNewsletter,
     eventNewsletter,
     guidesNewsletter,
-    postNewsletter
+    postNewsletter,
+    newsletter_basic
 }
