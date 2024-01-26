@@ -6,6 +6,8 @@ const db = require('./database/db');
 
 dotenv.config();
 
+const cors = cors()
+
 const app = express();
 const port = process.env.PORT;
 
