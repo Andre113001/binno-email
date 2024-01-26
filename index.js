@@ -6,8 +6,6 @@ const db = require('./database/db');
 
 dotenv.config();
 
-app.use(cors({ origin: 'http://localhost:5173' }))
-
 const app = express();
 const port = process.env.PORT;
 
@@ -15,6 +13,7 @@ const port = process.env.PORT;
 const jsonParserMiddleware = express.json();
 
 app.use(jsonParserMiddleware);
+app.use(cors({ origin: 'http://localhost:5173' }))
 
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*')
