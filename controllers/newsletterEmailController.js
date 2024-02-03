@@ -184,7 +184,7 @@ const newsletter_basic = async (req, res) => {
                             const email_id = email_ids[i];
 
                             try {
-                                const sent = await sendNewsletter(req, res, emailAddress, username, type, title, `https://www.binnostartup.site/m/api/images?filePath=${img}`, details, `https://www.binnostartup.site/${type}/${contentId}`, email_id);
+                                const sent = await sendNewsletter(req, res, emailAddress, username, type, title, `http://217.196.51.115/m/api/images?filePath=${img}`, details, `http://217.196.51.115/m/api/${type}/${contentId}`, email_id);
                                 sentEmails.push(sent);
                             } catch (error) {
                                 // Handle errors for individual emails

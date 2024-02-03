@@ -13,7 +13,7 @@ const port = process.env.PORT;
 const jsonParserMiddleware = express.json();
 
 app.use(jsonParserMiddleware);
-app.use(cors({ origin: 'http://localhost:5173',
+app.use(cors({ origin: '*',
 credentials: true, }))
 
 // app.use((req, res, next) => {
