@@ -7,7 +7,8 @@ router.use(nodemailerMiddleware);
 
 router.post('/blog', newsletterController.blogNewsletter);
 router.post('/event', newsletterController.eventNewsletter);
-router.post('/guide', newsletterController.guideNewsletter);
+router.post('/guides', newsletterController.guidesNewsletter);
 router.post('/post', newsletterController.postNewsletter);
+router.post('/', newsletterController.newsletter_basic);
 
 module.exports = router;
