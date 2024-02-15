@@ -7,5 +7,6 @@ router.use(nodemailerMiddleware);
 
 router.post('/approved', emailController.approved);
 router.post('/ongoing/:email', emailController.ongoing);
-
+router.post('/interview/zoom', emailController.interviewZoom);
+router.post('/interview/f2f', emailController.interviewF2f);
 module.exports = router;
