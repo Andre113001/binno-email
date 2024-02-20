@@ -33,11 +33,13 @@ credentials: true, }))
 const membershipRoute = require('./routes/membershipRoute');
 const othersRoute = require('./routes/othersRoute');
 const newsletterRoute = require('./routes/newsletterRoute');
+const adminRoute = require('./routes/adminRoute');
 
 
 app.use('/membership', membershipRoute);
 app.use('/others', othersRoute);
 app.use('/newsletter', newsletterRoute)
+app.use('/admin', adminRoute);
 
 app.get('/', (req, res) => res.status(200).json("Hello There!"));
 
