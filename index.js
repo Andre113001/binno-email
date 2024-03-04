@@ -34,12 +34,14 @@ const membershipRoute = require('./routes/membershipRoute');
 const othersRoute = require('./routes/othersRoute');
 const newsletterRoute = require('./routes/newsletterRoute');
 const adminRoute = require('./routes/adminRoute');
+const subscribeRoute = require('./routes/subscribeRoute');
 
 
 app.use('/membership', membershipRoute);
 app.use('/others', othersRoute);
 app.use('/newsletter', newsletterRoute)
 app.use('/admin', adminRoute);
+app.use('/subscribe', subscribeRoute)
 
 app.get('/', (req, res) => res.status(200).json("Hello There!"));
 
